@@ -2,22 +2,49 @@ package com.klein.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.klein.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@NotEmpty(message = "Campo não pode ficar em branco")
+	@Length(min = 5, max = 120, message = "O preenchimento deve ser entre 5 e 120 caracteries")
 	private String nome;
+	
+	@NotEmpty(message = "Campo não pode ficar em branco")
+	@Email(message = "Email invalido")
 	private String email;
+	
+	@NotEmpty(message = "Campo não pode ficar em branco")
 	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
-	private String logadouro;
+	@NotEmpty(message = "Campo não pode ficar em branco")
+	private String logradouro;
+	
+	@NotEmpty(message = "Campo não pode ficar em branco")
 	private String numero;
+	
 	private String complemento;
+	
 	private String bairro;
+	
+	@NotEmpty(message = "Campo não pode ficar em branco")
 	private String cep;
 	
-	private String tlefone1;
+	@NotEmpty(message = "Campo não pode ficar em branco")
+	private String telefone1;
+	
 	private String telefone2;
+	
 	private String telefone3;
 	
 	private Integer cidadeId;
@@ -57,12 +84,12 @@ public class ClienteNewDTO implements Serializable{
 		this.tipo = tipo;
 	}
 
-	public String getLogadouro() {
-		return logadouro;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setLogadouro(String logadouro) {
-		this.logadouro = logadouro;
+	public void setLogradouro(String logadouro) {
+		this.logradouro = logadouro;
 	}
 
 	public String getNumero() {
@@ -97,12 +124,12 @@ public class ClienteNewDTO implements Serializable{
 		this.cep = cep;
 	}
 
-	public String getTlefone1() {
-		return tlefone1;
+	public String getTelefone1() {
+		return telefone1;
 	}
 
-	public void setTlefone1(String tlefone1) {
-		this.tlefone1 = tlefone1;
+	public void setTelefone1(String telefone1) {
+		this.telefone1 = telefone1;
 	}
 
 	public String getTelefone2() {
