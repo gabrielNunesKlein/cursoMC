@@ -1,4 +1,4 @@
-package com.klein.cursomc.services;
+  package com.klein.cursomc.services;
 
 import java.awt.image.BufferedImage;
 import java.net.URI;
@@ -94,6 +94,22 @@ public class ClienteService {
 	
 	public List<Cliente> findAll() {
 		return repo.findAll();
+	}
+	
+	public Cliente findByEmail(String email) {
+		UserSS user = UserService.authenticated();
+		if(user == null || !user.hashRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
+			throw new AuthorizationException("Acesso Negado");
+		}
+		
+		Cliente obj = repo.findByEmail(email);
+		if(obj == null) {
+			throw new ObjectNotFountException(
+					"Objeto não encontrado " + user.getId() + ", Tipo: " + Cliente.class.getModifiers());
+			
+		}
+		
+		return obj;
 	}
 	
 	public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
