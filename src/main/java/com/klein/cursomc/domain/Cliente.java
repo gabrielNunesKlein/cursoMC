@@ -45,7 +45,7 @@ public class Cliente implements Serializable{
 	private Set<Integer> perfis = new HashSet<>();
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Endereco> endderecos = new ArrayList<>();
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	@ElementCollection
 	@CollectionTable(name = "TELEFONE")
@@ -127,12 +127,12 @@ public class Cliente implements Serializable{
 		perfis.add(perfil.getCod());
 	}
 
-	public List<Endereco> getEndderecos() {
-		return endderecos;
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
-	public void setEndderecos(List<Endereco> endderecos) {
-		this.endderecos = endderecos;
+	public void setEndderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	public Set<String> getTelefones() {

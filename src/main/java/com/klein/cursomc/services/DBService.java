@@ -73,7 +73,6 @@ public class DBService {
 		Categoria cat5 = new Categoria(null, "Jardinagem");
 		Categoria cat6 = new Categoria(null, "Decoração");
 		Categoria cat7 = new Categoria(null, "Perfumaria");
-		Categoria cat8 = new Categoria(null, "Teste");
 		
 		Produto p1 = new Produto(null, "Computador", 2000.00);
 		Produto p2 = new Produto(null, "Impressora", 800.00);
@@ -192,7 +191,7 @@ public class DBService {
 		p11.getCategorias().addAll(Arrays.asList(cat7));
 		
 		
-		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8));
+		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 		
 		produtoRepository.saveAll(Arrays.asList(p12, p13, p14, p15, p16, p17, p18, p19, p20,
@@ -223,8 +222,8 @@ public class DBService {
 		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
 		Endereco e3 = new Endereco(null, "Jardin Silvia", "305", "Sala 25", "Centro", "38777012", cli2, c2);
 		
-		cli1.getEndderecos().addAll(Arrays.asList(e1, e2));
-		cli2.getEndderecos().addAll(Arrays.asList(e3));
+		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		cli2.getEnderecos().addAll(Arrays.asList(e3));
 		
 		
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
